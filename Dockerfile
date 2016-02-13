@@ -7,15 +7,14 @@ FROM ubuntu:14.04
 
 MAINTAINER Forever Oceans
 
-# Update system
-RUN apt-get -y update && apt-get -y dist-upgrade
-
-# Install dependencies
-RUN apt-get -y install build-essential \
-                       git \
-                       python-dev \
-                       supervisor \
-                       wget
+# Update and install dependencies
+RUN apt-get -y update && \
+    apt-get -y install \
+        build-essential \
+        git \
+        python-dev \
+        supervisor \
+        wget
 
 # gpg keys listed at https://github.com/nodejs/node
 RUN set -ex \
